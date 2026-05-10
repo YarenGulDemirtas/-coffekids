@@ -393,42 +393,91 @@ body {
 }
 
 /* TELEFON */
+/* ========================= */
+/* MOBIL FIX */
+/* ========================= */
+
 @media (max-width: 768px){
 
+    /* HERO */
+    .hero-section{
+        background-position: 70% center;
+        min-height: auto;
+        padding-bottom: 40px;
+    }
+
+    /* NAVBAR */
     .navbar{
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .logo img{
+        height: 110px;
+    }
+
+    /* MENU LINKLER */
+    .nav-links{
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .nav-links a{
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    /* BUTTONLAR */
+    .nav-actions{
+        width: 100%;
         flex-direction: column;
         align-items: center;
     }
 
-    .nav-links{
+    .btn{
+        width: 90%;
         justify-content: center;
-        text-align: center;
+        font-size: 15px;
+        padding: 14px 18px;
     }
 
-    .nav-actions{
-        flex-wrap: wrap;
-        justify-content: center;
+    .menu-btn{
+        display: none;
     }
 
-    .hero-section{
-        background-position: center right;
-    }
-
+    /* HERO TEXT */
     .hero-content{
         padding: 20px;
+        justify-content: center;
     }
 
     .text-area{
+        width: 100%;
         text-align: center;
     }
 
     .text-area h1{
         font-size: 34px;
+        line-height: 1.2;
     }
 
+    .text-area p{
+        font-size: 15px;
+    }
+
+    /* ACTION BUTTONS */
     .action-buttons{
         flex-direction: column;
         align-items: center;
+    }
+
+    /* FEATURES */
+    .features-grid{
+        grid-template-columns: 1fr;
     }
 
     .feature-card{
@@ -436,34 +485,26 @@ body {
         text-align: center;
     }
 
+    /* GALLERY */
     .gallery-section{
         margin: 40px 15px;
     }
 
     .slider-track img{
-        height: 250px;
+        height: 240px;
     }
 
-    .page-title{
-        font-size: 26px;
-    }
-
-    .menu-grid{
-        grid-template-columns: 1fr;
-    }
-
-    .row{
+    /* FOOTER */
+    .bottom-bar{
         flex-direction: column;
+        margin: 20px;
+        gap: 25px;
+        padding: 25px;
     }
 
-    .admin-form{
+    .info-items{
         flex-direction: column;
-        align-items: stretch;
-    }
-
-    .admin-table{
-        display: block;
-        overflow-x: auto;
+        gap: 20px;
     }
 
     .social-icons{
