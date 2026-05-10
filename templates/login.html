@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yönetici Girişi - Coffee Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body style="background-color: var(--bg-light);">
+
+    <header class="navbar">
+        <div class="logo">
+            <a href="/"><img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo" style="height: 80px;"></a>
+        </div>
+        <nav class="nav-links">
+            <a href="/">Ana Sayfa</a>
+            <a href="/menu">Menü</a>
+            <a href="/login" style="color: var(--primary-color); font-weight: 700;"><i class="fa-solid fa-lock"></i> Yönetici</a>
+        </nav>
+        <div class="nav-actions">
+            <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+        </div>
+    </header>
+
+    <div class="form-container" style="max-width: 400px; margin-top: 80px;">
+        <h2 class="page-title" style="font-size: 24px; margin-bottom: 20px;"><i class="fa-solid fa-lock"></i> Yönetici Girişi</h2>
+        
+        {% if hata %}
+        <p style="color: #e74c3c; text-align: center; margin-bottom: 15px; font-size: 14px; font-weight: 600;">{{ hata }}</p>
+        {% endif %}
+
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label>E-posta Adresi</label>
+                <input type="email" name="username" class="form-control" placeholder="admin@cafe.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Şifre</label>
+                <input type="password" name="password" class="form-control" placeholder="••••" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px; padding: 15px; font-size: 16px;">Giriş Yap</button>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

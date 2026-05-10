@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yönetici Paneli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body style="background-color: #f4f4f9;">
+
+    <header class="navbar" style="background: var(--white); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+        <div class="logo">
+            <h2 style="color: var(--primary-color);">Yönetici Paneli</h2>
+        </div>
+        <div class="nav-actions">
+            <a href="/" class="btn btn-outline">Siteye Dön</a>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="admin-card">
+            <h3>Yeni Ürün Ekle</h3>
+            <form action="/urun_ekle" method="POST" class="admin-form">
+                <input type="text" name="urun_ad" class="form-control" placeholder="Ürün adı" required>
+                <input type="number" step="0.01" name="fiyat" class="form-control" placeholder="Fiyat (₺)" required>
+                <input type="text" name="aciklama" class="form-control" placeholder="Açıklama" required>
+                <select name="kategori" class="form-control" required>
+                    <option value="İçecekler">İçecekler</option>
+                    <option value="Tatlılar">Tatlılar</option>
+                    <option value="Ara Sıcaklar">Ara Sıcaklar</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Ekle</button>
+            </form>
+        </div>
+
+        <div style="display: flex; gap: 20px; margin-top: 30px;">
+            <div class="admin-card" style="flex: 1;">
+                <h3>Aktif Ürünler</h3>
+                <table class="admin-table">
+                    <tr><th>Ürün</th><th>Kategori</th><th>Fiyat</th><th>İşlem</th></tr>
+                    {% for urun in urunler %}
+                    <tr>
+                        <td>{{ urun.UrunAd }}</td>
+                        <td>{{ urun.KategoriAd }}</td>
+                        <td>{{ urun.Fiyat }} ₺</td>
+                        <td>
+                            <form action="/urun_sil/{{ urun.UrunID }}" method="POST">
+                                <button type="submit" class="btn-delete">Sil</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="admin-card" style="flex: 1;">
+                <h3>Gelen Rezervasyonlar</h3>
+                <table class="admin-table">
+                    <tr><th>Tarih/Saat</th><th>Müşteri</th><th>Kişi</th></tr>
+                    {% for rez in rezervasyonlar %}
+                    <tr>
+                        <td>{{ rez.Tarih }} <br> {{ rez.BaslangicSaati }}</td>
+                        <td>{{ rez.AdSoyad }}<br><small>{{ rez.Telefon }}</small></td>
+                        <td>{{ rez.YetiskinSayisi }} Yet., {{ rez.CocukSayisi }} Çoc.</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

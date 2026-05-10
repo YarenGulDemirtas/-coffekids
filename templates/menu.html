@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Menü - Coffee Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .page-container { max-width: 1200px; margin: 40px auto; padding: 20px; }
+        .page-title { text-align: center; color: var(--primary-color); font-size: 36px; margin-bottom: 40px; }
+        .category-title { color: var(--text-dark); border-bottom: 2px solid var(--primary-color); padding-bottom: 10px; margin-top: 40px; margin-bottom: 20px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .menu-item { background: var(--white); padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .menu-item:hover { transform: translateY(-5px); }
+        .menu-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px dashed #ddd; padding-bottom: 10px; margin-bottom: 10px;}
+        .menu-name { font-weight: 600; color: var(--text-dark); font-size: 18px; }
+        .menu-price { color: var(--primary-color); font-weight: 700; font-size: 18px; }
+        .menu-desc { font-size: 13px; color: #777; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="/">Ana Sayfa</a>
+            <a href="/menu" class="active">Menü</a>
+            <a href="/login" style="color: var(--primary-color); font-weight: 700;">
+                <i class="fa-solid fa-lock"></i> Yönetici
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <a href="/rezervasyon" class="btn btn-primary"><i class="fa-regular fa-calendar"></i> Rezervasyon Yap</a>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <h1 class="page-title">Lezzetlerimiz</h1>
+
+        <h2 class="category-title"><i class="fa-solid fa-mug-hot"></i> İçecekler</h2>
+        <div class="menu-grid">
+            {% for urun in icecekler %}
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">{{ urun.UrunAd }}</span>
+                    <span class="menu-price">{{ urun.Fiyat }} ₺</span>
+                </div>
+                <p class="menu-desc">{{ urun.Aciklama }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="category-title"><i class="fa-solid fa-cake-candles"></i> Tatlılar</h2>
+        <div class="menu-grid">
+            {% for urun in tatlilar %}
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">{{ urun.UrunAd }}</span>
+                    <span class="menu-price">{{ urun.Fiyat }} ₺</span>
+                </div>
+                <p class="menu-desc">{{ urun.Aciklama }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="category-title"><i class="fa-solid fa-burger"></i> Ara Sıcaklar</h2>
+        <div class="menu-grid">
+            {% for urun in ara_sicaklar %}
+            <div class="menu-item">
+                <div class="menu-header">
+                    <span class="menu-name">{{ urun.UrunAd }}</span>
+                    <span class="menu-price">{{ urun.Fiyat }} ₺</span>
+                </div>
+                <p class="menu-desc">{{ urun.Aciklama }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rezervasyon - Coffee Kids</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        .form-container { max-width: 600px; margin: 40px auto; padding: 40px; background: var(--white); border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .page-title { text-align: center; color: var(--primary-color); font-size: 32px; margin-bottom: 30px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; font-size: 14px; color: var(--text-dark); margin-bottom: 8px; font-weight: 600; }
+        .form-control { width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 10px; font-family: 'Poppins', sans-serif; font-size: 14px; transition: 0.3s; }
+        .form-control:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 5px rgba(230, 74, 102, 0.3); }
+        .row { display: flex; gap: 15px; }
+        .row .form-group { flex: 1; }
+        .submit-btn { width: 100%; justify-content: center; margin-top: 10px; font-size: 16px; padding: 15px; border-radius: 12px; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="/">Ana Sayfa</a>
+            <a href="/menu">Menü</a>
+            <a href="/login" style="color: var(--primary-color); font-weight: 700;">
+                <i class="fa-solid fa-lock"></i> Yönetici
+            </a>
+        </nav>
+        <div class="nav-actions">
+            <a href="/rezervasyon" class="btn btn-primary active"><i class="fa-regular fa-calendar"></i> Rezervasyon Yap</a>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <h1 class="page-title"><i class="fa-regular fa-calendar-check"></i> Masanızı Ayırtın</h1>
+        
+        <form action="/rezervasyon" method="POST">
+            <div class="form-group">
+                <label>Ad Soyad</label>
+                <input type="text" name="ad_soyad" class="form-control" placeholder="Örn: Aslı Yılmaz" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Telefon Numarası</label>
+                <input type="tel" name="telefon" class="form-control" placeholder="0555 123 45 67" required>
+            </div>
+
+            <div class="form-group">
+                <label>Rezervasyon Tarihi</label>
+                <input type="date" name="tarih" class="form-control" required>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Başlangıç Saati</label>
+                    <input type="time" name="baslangic" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Bitiş Saati</label>
+                    <input type="time" name="bitis" class="form-control" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Yetişkin Sayısı</label>
+                    <input type="number" name="yetiskin" class="form-control" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Çocuk Sayısı</label>
+                    <input type="number" name="cocuk" class="form-control" min="0" placeholder="İsteğe bağlı">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">Talebi Gönder <i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+    </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Kids - Ana Sayfa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="hero-section">
+
+        <header class="navbar">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="/" class="active">Ana Sayfa</a>
+                <a href="/menu">Menü</a>
+                <a href="/#galeri">Galeri</a>
+                <a href="/#iletisim">Hakkımızda / İletişim</a>
+<a href="/login" class="btn btn-outline">
+    <i class="fa-solid fa-lock"></i> Yönetici
+</a>            </nav>
+            <div class="nav-actions">
+                <a href="/rezervasyon" class="btn btn-primary"><i class="fa-regular fa-calendar"></i> Rezervasyon Yap</a>
+                <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </header>
+
+        <main class="hero-content">
+            <div class="text-area">
+                <h1>EN İYİ KAHVE <br> <span class="highlight">DENEYİMİ!</span></h1>
+                <p>Sıcak atmosferimiz ve özel lezzetlerimizle keyifli vakit geçirmek için buradayız.</p>
+                
+                <div class="action-buttons">
+                    <a href="/menu" class="btn btn-primary">☕ MENÜMÜZE GÖZ AT <i class="fa-solid fa-chevron-right"></i></a>
+                    <a href="/rezervasyon" class="btn btn-outline"><i class="fa-regular fa-calendar"></i> REZERVASYON YAP</a>
+                </div>
+
+                <div class="features-grid" id="hakkimizda">
+                    <div class="feature-card">
+                        <div class="icon">🧸</div>
+                        <div class="info">
+                            <h4>GÜVENLİ OYUN ALANLARI</h4>
+                            <p>Çocuklar için güvenli ve eğlenceli alanlar</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🥤</div>
+                        <div class="info">
+                            <h4>ÖZEL İÇECEK ÇEŞİTLERİ</h4>
+                            <p>Çocuklara özel lezzetli içecek seçenekleri</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🍰</div>
+                        <div class="info">
+                            <h4>DOĞUM GÜNÜ ORGANİZASYONLARI</h4>
+                            <p>Unutulmaz doğum günü partileri</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon">🙂</div>
+                        <div class="info">
+                            <h4>MUTLU ÇOCUKLAR LEZZETLİ ANILAR</h4>
+                            <p>Mutlu anılar biriktirmeniz için buradayız</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div> <div id="galeri" class="gallery-section">
+        <h2 class="page-title"><i class="fa-regular fa-image"></i> Mekanımızdan Kareler</h2>
+        <div class="slider-container">
+            <button class="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            <div class="slider-track">
+                <img src="{{ url_for('static', filename='mekan1.jpeg') }}" alt="Foto 1">
+                <img src="{{ url_for('static', filename='mekan2.jpeg') }}" alt="Foto 2">
+                <img src="{{ url_for('static', filename='mekan3.jpeg') }}" alt="Foto 3">
+                <img src="{{ url_for('static', filename='mekan4.jpeg') }}" alt="Foto 4">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="bottom-bar" id="iletisim">
+        <div class="info-items">
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                    <h5>Merkez Konum</h5>
+                    <p>Şehrin tam kalbinde, kolay ulaşılabilir lokasyon</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                    <h5>Açılış Saatleri</h5>
+                    <p>Her gün 09:00 - 22:00 arasında hizmetinizdeyiz</p>
+                </div>
+            </div>
+            <div class="info-item">
+               <i class="fa-solid fa-cake-candles"></i>
+                <div>
+                    <h5>Özel Etkinlikler</h5>
+                    <p>Atölyeler, doğum günü, çeşitli davetler ve etkinlikler</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-wifi"></i>
+                <div>
+                    <h5>Ücretsiz Wi-Fi</h5>
+                    <p>Hızlı internet ve konforlu ortam sizinle</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="social-icons">
+    <a href="https://www.google.com/maps/place/Coffee+Kids/@39.7440212,37.0439724,17z/data=!4m14!1m7!3m6!1s0x40795500289f66c7:0xec386a734a37e1f7!2sCoffee+Kids!8m2!3d39.7440171!4d37.0465473!16s%2Fg%2F11mspx14yq!3m5!1s0x40795500289f66c7:0xec386a734a37e1f7!8m2!3d39.7440171!4d37.0465473!16s%2Fg%2F11mspx14yq?entry=ttu&g_ep=EgoyMDI2MDUwNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+        <i class="fa-solid fa-location-dot"></i>
+    </a>
+
+    <a href="https://instagram.com/cafekidss" target="_blank">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/905322467158" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    
+
+</div>
+
+    
+
+</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
