@@ -645,4 +645,7 @@ body{
         justify-content:center;
     }
 
+    body{
+    border:10px solid red;
+}
 }
