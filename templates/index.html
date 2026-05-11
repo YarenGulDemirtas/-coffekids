@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <div class="hero-section">
@@ -17,15 +18,30 @@
                 <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
             </div>
             <nav class="nav-links">
-                <a href="/" class="active">Ana Sayfa</a>
-                <a href="/menu">Menü</a>
-                <a href="/#galeri">Galeri</a>
-                <a href="/#iletisim">Hakkımızda / İletişim</a>
-           </nav>
+
+    <a href="/" class="active">Ana Sayfa</a>
+
+    <a href="/menu">Menü</a>
+
+    <a href="/#galeri">Galeri</a>
+
+    <a href="/#iletisim">Hakkımızda / İletişim</a>
+
+    <a href="/login" class="hamburger-admin-btn">
+
+        <i class="fa-solid fa-lock"></i>
+        Yönetici
+
+    </a>
+
+</nav>
             <div class="nav-actions">
-                <a href="/rezervasyon" class="btn btn-primary"><i class="fa-regular fa-calendar"></i> Rezervasyon Yap</a>
-                <button class="menu-btn"><i class="fa-solid fa-bars"></i></button>
-            </div>
+
+    <button class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+</div>
         </header>
 
         <main class="hero-content">
