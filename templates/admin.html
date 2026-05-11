@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Yönetici Girişi - Coffee Kids</title>
+    <title>Yönetici Paneli - Coffee Kids</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -18,268 +21,350 @@
             background:#f6f7fb;
         }
 
-        /* ========================= */
-        /* LOGIN SECTION */
-        /* ========================= */
-
-        .login-section{
-
+        .admin-section{
             width:100%;
+            padding:40px 20px 80px;
+        }
+
+        .admin-top{
+
+            max-width:1200px;
+
+            margin:0 auto 25px;
 
             display:flex;
 
-            justify-content:center;
+            justify-content:space-between;
 
-            padding:60px 20px 90px;
-        }
-
-        .login-card{
-
-            width:100%;
-
-            max-width:520px;
-
-            background:rgba(255,255,255,0.94);
-
-            backdrop-filter:blur(12px);
-
-            border-radius:34px;
-
-            padding:40px;
-
-            box-shadow:
-            0 10px 40px rgba(0,0,0,0.08),
-            inset 0 1px 0 rgba(255,255,255,0.7);
-
-            border:1px solid rgba(255,255,255,0.4);
-        }
-
-        .login-header{
-
-            text-align:center;
-
-            margin-bottom:34px;
-        }
-
-        .login-badge{
-
-            width:82px;
-            height:82px;
-
-            margin:0 auto 18px;
-
-            border-radius:26px;
-
-            background:linear-gradient(
-                135deg,
-                #E64A66,
-                #ff8da3
-            );
-
-            display:flex;
             align-items:center;
-            justify-content:center;
 
-            color:white;
+            gap:15px;
+        }
+
+        .admin-title{
 
             font-size:32px;
 
-            box-shadow:
-            0 10px 25px rgba(230,74,102,0.25);
-        }
-
-        .login-title{
-
-            font-size:34px;
-
             color:var(--primary-color);
-
-            margin-bottom:10px;
         }
 
-        .login-subtitle{
+        .logout-btn{
 
-            color:#777;
+            padding:14px 22px;
 
-            font-size:15px;
+            border-radius:16px;
 
-            line-height:1.6;
-        }
+            background:#1f1f1f;
 
-        /* ========================= */
-        /* FORM */
-        /* ========================= */
+            color:white;
 
-        .login-form{
-            display:flex;
-            flex-direction:column;
-            gap:18px;
-        }
-
-        .form-group label{
-
-            display:block;
-
-            margin-bottom:10px;
-
-            font-size:14px;
+            text-decoration:none;
 
             font-weight:600;
 
-            color:var(--text-dark);
+            transition:0.2s ease;
         }
 
-        .input-box{
-            position:relative;
+        .logout-btn:hover{
+            opacity:0.9;
         }
 
-        .input-box i{
+        .admin-grid{
 
-            position:absolute;
+            max-width:1200px;
 
-            left:18px;
-            top:50%;
+            margin:0 auto;
 
-            transform:translateY(-50%);
+            display:grid;
+
+            grid-template-columns:1fr 1fr;
+
+            gap:22px;
+        }
+
+        .admin-card{
+
+            background:white;
+
+            border-radius:26px;
+
+            padding:28px;
+
+            box-shadow:
+            0 8px 30px rgba(0,0,0,0.05);
+        }
+
+        .card-title{
+
+            font-size:23px;
 
             color:var(--primary-color);
 
-            font-size:15px;
+            margin-bottom:22px;
+        }
+
+        .admin-form{
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:15px;
         }
 
         .form-control{
 
             width:100%;
 
-            height:60px;
+            height:56px;
 
             border:none;
 
             outline:none;
 
-            border-radius:18px;
+            border-radius:16px;
 
-            background:#f6f6f6;
+            background:#f4f4f4;
 
-            padding:0 18px 0 52px;
+            padding:0 16px;
 
             font-size:15px;
-
-            transition:0.3s ease;
         }
 
-        .form-control:focus{
+        textarea.form-control{
 
-            background:white;
+            min-height:110px;
 
-            box-shadow:
-            0 0 0 4px rgba(230,74,102,0.12);
+            padding:16px;
+
+            resize:none;
         }
 
-        .login-btn{
+        .submit-btn{
 
             width:100%;
 
-            height:62px;
+            height:56px;
 
             border:none;
 
-            border-radius:22px;
+            border-radius:16px;
 
-            margin-top:10px;
+            background:var(--primary-color);
 
-            font-size:16px;
+            color:white;
+
+            font-size:15px;
 
             font-weight:600;
 
             cursor:pointer;
 
+            transition:0.2s ease;
+        }
+
+        .submit-btn:hover{
+            opacity:0.92;
+        }
+
+        .item-box{
+
+            background:#fafafa;
+
+            border-radius:18px;
+
+            padding:18px;
+
+            margin-bottom:15px;
+
+            border:1px solid #eee;
+        }
+
+        .item-top{
+
             display:flex;
+
+            justify-content:space-between;
+
             align-items:center;
-            justify-content:center;
 
             gap:10px;
 
-            background:linear-gradient(
-                135deg,
-                #E64A66,
-                #ff7f99
-            );
-
-            color:white;
-
-            box-shadow:
-            0 10px 25px rgba(230,74,102,0.22);
-
-            transition:0.3s ease;
+            margin-bottom:8px;
         }
 
-        .login-btn:hover{
-            transform:translateY(-2px);
+        .item-name{
+
+            font-size:17px;
+
+            font-weight:700;
         }
 
-        .error-text{
+        .item-price{
 
-            color:#e74c3c;
+            color:var(--primary-color);
+
+            font-weight:700;
+        }
+
+        .item-category{
+
+            font-size:13px;
+
+            color:#777;
+
+            margin-bottom:8px;
+        }
+
+        .item-desc{
 
             font-size:14px;
 
-            font-weight:600;
+            color:#555;
 
-            text-align:center;
-
-            margin-bottom:5px;
+            line-height:1.5;
         }
 
-        /* ========================= */
-        /* MOBILE */
-        /* ========================= */
+        .delete-btn{
+
+            margin-top:14px;
+
+            width:100%;
+
+            height:44px;
+
+            border:none;
+
+            border-radius:14px;
+
+            background:#ffeaea;
+
+            color:#e53935;
+
+            font-weight:600;
+
+            cursor:pointer;
+
+            transition:0.2s ease;
+        }
+
+        .delete-btn:hover{
+            opacity:0.9;
+        }
+
+        .rez-box{
+
+            background:#fafafa;
+
+            border-radius:18px;
+
+            padding:18px;
+
+            margin-bottom:15px;
+
+            border:1px solid #eee;
+        }
+
+        .rez-name{
+
+            font-size:17px;
+
+            font-weight:700;
+
+            margin-bottom:8px;
+        }
+
+        .rez-info{
+
+            font-size:14px;
+
+            color:#666;
+
+            line-height:1.8;
+        }
+
+        .empty-text{
+
+            color:#888;
+
+            font-size:14px;
+        }
+
+        /* MOBİL */
 
         @media (max-width:768px){
 
-            .login-section{
-                padding:20px 16px 70px;
+            .admin-section{
+                padding:20px 14px 60px;
             }
 
-            .login-card{
+            .admin-top{
 
-                padding:24px 18px;
+                flex-direction:column;
 
-                border-radius:28px;
+                align-items:flex-start;
             }
 
-            .login-badge{
+            .admin-title{
+                font-size:28px;
+            }
 
-                width:68px;
-                height:68px;
+            .admin-grid{
 
-                font-size:26px;
+                grid-template-columns:1fr;
+
+                gap:18px;
+            }
+
+            .admin-card{
+
+                padding:22px 18px;
 
                 border-radius:22px;
             }
 
-            .login-title{
-                font-size:28px;
-            }
-
-            .login-subtitle{
-                font-size:14px;
+            .card-title{
+                font-size:21px;
             }
 
             .form-control{
 
-                height:56px;
+                height:54px;
 
                 font-size:14px;
             }
 
-            .login-btn{
+            textarea.form-control{
+                min-height:100px;
+            }
 
-                height:58px;
+            .submit-btn{
 
-                border-radius:20px;
+                height:54px;
 
+                font-size:14px;
+            }
+
+            .item-top{
+
+                flex-direction:column;
+
+                align-items:flex-start;
+            }
+
+            .item-price{
                 font-size:15px;
+            }
+
+            .logout-btn{
+
+                width:100%;
+
+                text-align:center;
+
+                display:flex;
+
+                justify-content:center;
             }
 
         }
@@ -293,115 +378,222 @@
     <header class="navbar">
 
         <div class="logo">
+
             <a href="/">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+
+                <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo">
+
             </a>
+
         </div>
-
-        <nav class="nav-links">
-
-            <a href="/">
-                <i class="fa-solid fa-house"></i>
-                Ana Sayfa
-            </a>
-
-            <a href="/menu">
-                <i class="fa-solid fa-utensils"></i>
-                Menü
-            </a>
-
-            <a href="/login" class="active">
-                <i class="fa-solid fa-lock"></i>
-                Yönetici
-            </a>
-
-        </nav>
 
         <div class="nav-actions">
 
             <button class="menu-btn">
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
 
         </div>
 
     </header>
 
-    <section class="login-section">
+    <section class="admin-section">
 
-        <div class="login-card">
+        <div class="admin-top">
 
-            <div class="login-header">
+            <h1 class="admin-title">
+                Yönetici Paneli
+            </h1>
 
-                <div class="login-badge">
-                    <i class="fa-solid fa-lock"></i>
-                </div>
+            <a href="/logout" class="logout-btn">
+                Çıkış Yap
+            </a>
 
-                <h1 class="login-title">
-                    Yönetici Girişi
-                </h1>
+        </div>
 
-                <p class="login-subtitle">
-                    Yönetim paneline erişmek için giriş yapın.
-                </p>
+        <div class="admin-grid">
+
+            <!-- ÜRÜN EKLE -->
+
+            <div class="admin-card">
+
+                <h2 class="card-title">
+                    Yeni Ürün Ekle
+                </h2>
+
+                <form action="/urun_ekle" method="POST" class="admin-form">
+
+                    <input
+                        type="text"
+                        name="urun_ad"
+                        class="form-control"
+                        placeholder="Ürün Adı"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        name="fiyat"
+                        class="form-control"
+                        placeholder="Fiyat"
+                        required
+                    >
+
+                    <textarea
+                        name="aciklama"
+                        class="form-control"
+                        placeholder="Ürün açıklaması"
+                        required
+                    ></textarea>
+
+                    <select
+                        name="kategori"
+                        class="form-control"
+                        required
+                    >
+
+                        <option value="İçecekler">
+                            İçecekler
+                        </option>
+
+                        <option value="Tatlılar">
+                            Tatlılar
+                        </option>
+
+                        <option value="Ara Sıcaklar">
+                            Ara Sıcaklar
+                        </option>
+
+                    </select>
+
+                    <button type="submit" class="submit-btn">
+                        Ürün Ekle
+                    </button>
+
+                </form>
 
             </div>
 
-            {% if hata %}
-            <p class="error-text">{{ hata }}</p>
-            {% endif %}
+            <!-- ÜRÜNLER -->
 
-            <form action="/login" method="POST" class="login-form">
+            <div class="admin-card">
 
-                <div class="form-group">
+                <h2 class="card-title">
+                    Aktif Ürünler
+                </h2>
 
-                    <label>E-posta Adresi</label>
+                {% if urunler %}
 
-                    <div class="input-box">
+                    {% for urun in urunler %}
 
-                        <i class="fa-regular fa-envelope"></i>
+                    <div class="item-box">
 
-                        <input
-                            type="email"
-                            name="username"
-                            class="form-control"
-                            placeholder="admin@cafe.com"
-                            required
-                        >
+                        <div class="item-top">
+
+                            <div class="item-name">
+                                {{ urun['urun_ad'] }}
+                            </div>
+
+                            <div class="item-price">
+                                {{ urun['fiyat'] }} ₺
+                            </div>
+
+                        </div>
+
+                        <div class="item-category">
+                            {{ urun['kategori'] }}
+                        </div>
+
+                        <div class="item-desc">
+                            {{ urun['aciklama'] }}
+                        </div>
+
+                        <form action="/urun_sil/{{ urun['id'] }}" method="POST">
+
+                            <button type="submit" class="delete-btn">
+                                Ürünü Sil
+                            </button>
+
+                        </form>
 
                     </div>
 
-                </div>
+                    {% endfor %}
 
-                <div class="form-group">
+                {% else %}
 
-                    <label>Şifre</label>
+                    <p class="empty-text">
+                        Henüz ürün eklenmedi.
+                    </p>
 
-                    <div class="input-box">
+                {% endif %}
 
-                        <i class="fa-solid fa-lock"></i>
+            </div>
 
-                        <input
-                            type="password"
-                            name="password"
-                            class="form-control"
-                            placeholder="••••••••"
-                            required
-                        >
+        </div>
+
+        <!-- REZERVASYONLAR -->
+
+        <div class="admin-grid" style="margin-top:22px;">
+
+            <div class="admin-card" style="grid-column:1/-1;">
+
+                <h2 class="card-title">
+                    Gelen Rezervasyonlar
+                </h2>
+
+                {% if rezervasyonlar %}
+
+                    {% for rez in rezervasyonlar %}
+
+                    <div class="rez-box">
+
+                        <div class="rez-name">
+                            {{ rez['ad_soyad'] }}
+                        </div>
+
+                        <div class="rez-info">
+
+                            <strong>Telefon:</strong>
+                            {{ rez['telefon'] }}
+
+                            <br>
+
+                            <strong>Tarih:</strong>
+                            {{ rez['tarih'] }}
+
+                            <br>
+
+                            <strong>Saat:</strong>
+                            {{ rez['baslangic'] }}
+                            -
+                            {{ rez['bitis'] }}
+
+                            <br>
+
+                            <strong>Kişi:</strong>
+                            {{ rez['yetiskin'] }}
+                            Yetişkin /
+                            {{ rez['cocuk'] }}
+                            Çocuk
+
+                        </div>
 
                     </div>
 
-                </div>
+                    {% endfor %}
 
-                <button type="submit" class="login-btn">
+                {% else %}
 
-                    Giriş Yap
+                    <p class="empty-text">
+                        Henüz rezervasyon bulunmuyor.
+                    </p>
 
-                    <i class="fa-solid fa-arrow-right"></i>
+                {% endif %}
 
-                </button>
-
-            </form>
+            </div>
 
         </div>
 
@@ -410,4 +602,5 @@
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>

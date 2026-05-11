@@ -1,67 +1,71 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // =========================
+    // ======================
     // MOBİL MENÜ
-    // =========================
+    // ======================
 
-    const menuBtn = document.querySelector('.menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const menuBtn = document.querySelector(".menu-btn");
+    const navLinks = document.querySelector(".nav-links");
 
-    if (menuBtn && navLinks) {
+    if(menuBtn && navLinks){
 
-        menuBtn.addEventListener('click', function () {
+        menuBtn.addEventListener("click", () => {
 
-            navLinks.classList.toggle('mobile-active');
+            navLinks.classList.toggle("mobile-active");
 
         });
 
     }
 
-    // =========================
+    // ======================
     // GALERİ SLIDER
-    // =========================
+    // ======================
 
-    const track = document.querySelector('.slider-track');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+    const sliderTrack = document.querySelector(".slider-track");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
 
-    if (track && prevBtn && nextBtn) {
+    if(sliderTrack && prevBtn && nextBtn){
 
-        const slides = Array.from(track.children);
+        const slides = sliderTrack.querySelectorAll("img");
 
-        let currentIndex = 0;
+        let currentSlide = 0;
 
-        function updateSlider() {
+        function changeSlide(){
 
-            const slideWidth = slides[0].getBoundingClientRect().width;
+            const slideWidth = slides[0].clientWidth;
 
-            track.style.transform =
-                `translateX(-${currentIndex * slideWidth}px)`;
+            sliderTrack.style.transform =
+            `translateX(-${currentSlide * slideWidth}px)`;
+
         }
 
-        nextBtn.addEventListener('click', () => {
+        nextBtn.addEventListener("click", () => {
 
-            if (currentIndex < slides.length - 1) {
-                currentIndex++;
-            } else {
-                currentIndex = 0;
+            currentSlide++;
+
+            if(currentSlide >= slides.length){
+                currentSlide = 0;
             }
 
-            updateSlider();
+            changeSlide();
+
         });
 
-        prevBtn.addEventListener('click', () => {
+        prevBtn.addEventListener("click", () => {
 
-            if (currentIndex > 0) {
-                currentIndex--;
-            } else {
-                currentIndex = slides.length - 1;
+            currentSlide--;
+
+            if(currentSlide < 0){
+                currentSlide = slides.length - 1;
             }
 
-            updateSlider();
+            changeSlide();
+
         });
 
-        window.addEventListener('resize', updateSlider);
+        window.addEventListener("resize", changeSlide);
+
     }
 
 });

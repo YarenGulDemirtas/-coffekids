@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Rezervasyon - Coffee Kids</title>
@@ -14,28 +17,23 @@
 
     <style>
 
-        /* ========================= */
-        /* RESERVATION PAGE */
-        /* ========================= */
+        body{
+            background:#f6f7fb;
+        }
 
         .reservation-section{
-
             width:100%;
-
             display:flex;
-
             justify-content:center;
-
             padding:50px 20px 90px;
         }
 
         .reservation-card{
 
             width:100%;
-
             max-width:650px;
 
-            background:rgba(255,255,255,0.92);
+            background:rgba(255,255,255,0.94);
 
             backdrop-filter:blur(10px);
 
@@ -44,17 +42,14 @@
             padding:38px;
 
             box-shadow:
-            0 10px 40px rgba(0,0,0,0.08),
-            inset 0 1px 0 rgba(255,255,255,0.7);
+            0 10px 35px rgba(0,0,0,0.08);
 
-            border:1px solid rgba(255,255,255,0.4);
+            border:1px solid rgba(255,255,255,0.5);
         }
 
         .reservation-header{
-
             text-align:center;
-
-            margin-bottom:30px;
+            margin-bottom:32px;
         }
 
         .reservation-badge{
@@ -81,7 +76,7 @@
             font-size:30px;
 
             box-shadow:
-            0 10px 25px rgba(230,74,102,0.25);
+            0 10px 24px rgba(230,74,102,0.22);
         }
 
         .reservation-title{
@@ -100,6 +95,29 @@
             color:#777;
 
             line-height:1.6;
+        }
+
+        .success-box{
+
+            width:100%;
+
+            padding:16px 18px;
+
+            margin-bottom:22px;
+
+            border-radius:18px;
+
+            background:#e9fff1;
+
+            color:#1c8c4c;
+
+            font-size:14px;
+
+            font-weight:600;
+
+            text-align:center;
+
+            border:1px solid #bde7cb;
         }
 
         .reservation-form{
@@ -133,7 +151,6 @@
         }
 
         .input-box{
-
             position:relative;
         }
 
@@ -163,7 +180,7 @@
 
             border-radius:18px;
 
-            background:#f6f6f6;
+            background:#f5f5f5;
 
             padding:0 18px 0 50px;
 
@@ -184,13 +201,21 @@
 
             width:100%;
 
-            height:62px;
+            height:60px;
 
             border:none;
 
-            border-radius:22px;
+            border-radius:20px;
 
-            margin-top:12px;
+            margin-top:10px;
+
+            background:linear-gradient(
+                135deg,
+                #E64A66,
+                #ff7f99
+            );
+
+            color:white;
 
             font-size:16px;
 
@@ -204,27 +229,15 @@
 
             gap:10px;
 
-            background:linear-gradient(
-                135deg,
-                #E64A66,
-                #ff7f99
-            );
-
-            color:white;
+            transition:0.3s ease;
 
             box-shadow:
-            0 10px 25px rgba(230,74,102,0.22);
-
-            transition:0.3s ease;
+            0 10px 24px rgba(230,74,102,0.22);
         }
 
         .reservation-btn:hover{
             transform:translateY(-2px);
         }
-
-        /* ========================= */
-        /* MOBILE */
-        /* ========================= */
 
         @media (max-width:768px){
 
@@ -246,7 +259,7 @@
 
                 font-size:26px;
 
-                border-radius:22px;
+                border-radius:20px;
             }
 
             .reservation-title{
@@ -258,7 +271,6 @@
             }
 
             .form-grid{
-
                 grid-template-columns:1fr;
             }
 
@@ -271,11 +283,11 @@
 
             .reservation-btn{
 
-                height:58px;
-
-                border-radius:20px;
+                height:56px;
 
                 font-size:15px;
+
+                border-radius:18px;
             }
 
         }
@@ -289,31 +301,46 @@
     <header class="navbar">
 
         <div class="logo">
+
             <a href="/">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+
+                <img
+                    src="{{ url_for('static', filename='logo.png') }}"
+                    alt="Coffee Kids Logo"
+                >
+
             </a>
+
         </div>
 
         <nav class="nav-links">
 
             <a href="/">
+
                 <i class="fa-solid fa-house"></i>
                 Ana Sayfa
+
             </a>
 
             <a href="/menu">
+
                 <i class="fa-solid fa-utensils"></i>
                 Menü
+
             </a>
 
             <a href="/rezervasyon" class="active">
+
                 <i class="fa-regular fa-calendar"></i>
                 Rezervasyon
+
             </a>
 
-            <a href="/login">
+            <a href="/login" class="hamburger-admin-btn">
+
                 <i class="fa-solid fa-lock"></i>
                 Yönetici
+
             </a>
 
         </nav>
@@ -321,7 +348,9 @@
         <div class="nav-actions">
 
             <button class="menu-btn">
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
 
         </div>
@@ -335,24 +364,44 @@
             <div class="reservation-header">
 
                 <div class="reservation-badge">
+
                     <i class="fa-regular fa-calendar-check"></i>
+
                 </div>
 
                 <h1 class="reservation-title">
+
                     Yerinizi Ayırtın
+
                 </h1>
 
                 <p class="reservation-subtitle">
+
                     Çocuklarınızla birlikte keyifli ve güvenli vakit geçirmek için rezervasyon oluşturabilirsiniz.
+
                 </p>
 
             </div>
 
+            {% if request.args.get('basarili') %}
+
+            <div class="success-box">
+
+                Rezervasyon talebiniz başarıyla alınmıştır 🎉
+
+            </div>
+
+            {% endif %}
+
             <form action="/rezervasyon" method="POST" class="reservation-form">
+
+                <!-- AD SOYAD -->
 
                 <div class="form-group">
 
-                    <label>Ad Soyad</label>
+                    <label>
+                        Ad Soyad
+                    </label>
 
                     <div class="input-box">
 
@@ -362,7 +411,12 @@
                             type="text"
                             name="ad_soyad"
                             class="form-control"
-                            placeholder="Örn: Aslı Yılmaz"
+
+                            placeholder="Örn: Yaren Gül Demirtaş"
+
+                            minlength="3"
+                            maxlength="40"
+
                             required
                         >
 
@@ -370,9 +424,13 @@
 
                 </div>
 
+                <!-- TELEFON -->
+
                 <div class="form-group">
 
-                    <label>Telefon Numarası</label>
+                    <label>
+                        Telefon Numarası
+                    </label>
 
                     <div class="input-box">
 
@@ -382,7 +440,15 @@
                             type="tel"
                             name="telefon"
                             class="form-control"
-                            placeholder="0555 123 45 67"
+
+                            placeholder="05xxxxxxxxx"
+
+                            maxlength="11"
+
+                            pattern="0[0-9]{10}"
+
+                            inputmode="numeric"
+
                             required
                         >
 
@@ -390,9 +456,13 @@
 
                 </div>
 
+                <!-- TARİH -->
+
                 <div class="form-group">
 
-                    <label>Rezervasyon Tarihi</label>
+                    <label>
+                        Rezervasyon Tarihi
+                    </label>
 
                     <div class="input-box">
 
@@ -402,6 +472,8 @@
                             type="date"
                             name="tarih"
                             class="form-control"
+                            id="reservation-date"
+
                             required
                         >
 
@@ -409,11 +481,15 @@
 
                 </div>
 
+                <!-- SAAT -->
+
                 <div class="form-grid">
 
                     <div class="form-group">
 
-                        <label>Başlangıç Saati</label>
+                        <label>
+                            Başlangıç Saati
+                        </label>
 
                         <div class="input-box">
 
@@ -423,6 +499,12 @@
                                 type="time"
                                 name="baslangic"
                                 class="form-control"
+
+                                step="1800"
+
+                                min="09:00"
+                                max="22:00"
+
                                 required
                             >
 
@@ -432,7 +514,9 @@
 
                     <div class="form-group">
 
-                        <label>Bitiş Saati</label>
+                        <label>
+                            Bitiş Saati
+                        </label>
 
                         <div class="input-box">
 
@@ -442,6 +526,12 @@
                                 type="time"
                                 name="bitis"
                                 class="form-control"
+
+                                step="1800"
+
+                                min="09:00"
+                                max="22:00"
+
                                 required
                             >
 
@@ -451,11 +541,15 @@
 
                 </div>
 
+                <!-- KİŞİ SAYISI -->
+
                 <div class="form-grid">
 
                     <div class="form-group">
 
-                        <label>Yetişkin Sayısı</label>
+                        <label>
+                            Yetişkin Sayısı
+                        </label>
 
                         <div class="input-box">
 
@@ -465,8 +559,12 @@
                                 type="number"
                                 name="yetiskin"
                                 class="form-control"
+
                                 min="1"
+                                max="20"
+
                                 value="1"
+
                                 required
                             >
 
@@ -476,17 +574,22 @@
 
                     <div class="form-group">
 
-                        <label>Çocuk Sayısı</label>
+                        <label>
+                            Çocuk Sayısı
+                        </label>
 
                         <div class="input-box">
 
-                            <i class="fa-solid fa-child-reaching"></i>
+                            <i class="fa-solid fa-baby"></i>
 
                             <input
                                 type="number"
                                 name="cocuk"
                                 class="form-control"
+
                                 min="0"
+                                max="20"
+
                                 placeholder="İsteğe bağlı"
                             >
 
@@ -510,7 +613,34 @@
 
     </section>
 
+    <script>
+
+        // BUGÜNDEN ÖNCE TARİH SEÇİLEMEZ
+
+        const today = new Date().toISOString().split("T")[0];
+
+        document
+            .getElementById("reservation-date")
+            .setAttribute("min", today);
+
+
+        // TELEFON SADECE SAYI
+
+        const telefonInput =
+            document.querySelector('input[name="telefon"]');
+
+        telefonInput.addEventListener("input", function () {
+
+            this.value = this.value
+                .replace(/[^0-9]/g, "")
+                .slice(0, 11);
+
+        });
+
+    </script>
+
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>

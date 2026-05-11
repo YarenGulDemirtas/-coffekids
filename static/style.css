@@ -644,33 +644,5 @@ body{
     .social-icons{
         justify-content:center;
     }
-@media (max-width:768px){
-
-    .menu-btn{
-        display:flex !important;
-
-        position:fixed;
-
-        top:18px;
-        right:18px;
-
-        width:56px;
-        height:56px;
-
-        border:none;
-
-        border-radius:18px;
-
-        background:white;
-
-        z-index:99999;
-
-        align-items:center;
-        justify-content:center;
-
-        box-shadow:0 6px 20px rgba(0,0,0,0.12);
-    }
-
-}
 
 }

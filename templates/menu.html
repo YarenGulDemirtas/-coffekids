@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Menü - Coffee Kids</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -11,164 +14,288 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body>
 
+    <!-- NAVBAR -->
+
     <header class="navbar">
 
         <div class="logo">
+
             <a href="/">
-                <img src="{{ url_for('static', filename='logo.png') }}" alt="Coffee Kids Logo">
+
+                <img
+                    src="{{ url_for('static', filename='logo.png') }}"
+                    alt="Coffee Kids Logo"
+                >
+
             </a>
+
         </div>
+
+        <!-- MENÜ -->
 
         <nav class="nav-links">
 
             <a href="/">
+
                 <i class="fa-solid fa-house"></i>
+
                 Ana Sayfa
+
             </a>
 
             <a href="/menu" class="active">
+
                 <i class="fa-solid fa-utensils"></i>
+
                 Menü
+
             </a>
 
             <a href="/rezervasyon">
+
                 <i class="fa-regular fa-calendar"></i>
+
                 Rezervasyon
+
             </a>
 
-            <a href="/login">
+            <a href="/login" class="hamburger-admin-btn">
+
                 <i class="fa-solid fa-lock"></i>
+
                 Yönetici
+
             </a>
 
         </nav>
 
+        <!-- HAMBURGER -->
+
         <div class="nav-actions">
 
             <button class="menu-btn">
+
                 <i class="fa-solid fa-bars"></i>
+
             </button>
 
         </div>
 
     </header>
 
-    <div class="page-container">
+    <!-- SAYFA -->
 
-        <h1 class="page-title">Lezzetlerimiz</h1>
+    <section class="page-container">
+
+        <h1 class="page-title">
+
+            
+
+            Lezzetlerimiz
+
+        </h1>
 
         <!-- İÇECEKLER -->
 
-        <h2 class="category-title">
-            <i class="fa-solid fa-mug-hot"></i>
-            İçecekler
-        </h2>
+        <div class="menu-category">
 
-        <div class="menu-grid">
+            <h2 class="category-title">
 
-            {% for urun in icecekler %}
+                <i class="fa-solid fa-mug-hot"></i>
 
-            <div class="menu-item">
+                İçecekler
 
-                <div class="menu-header">
+            </h2>
 
-                    <span class="menu-name">
-                        {{ urun.UrunAd }}
-                    </span>
+            <div class="menu-grid">
 
-                    <span class="menu-price">
-                        {{ urun.Fiyat }} ₺
-                    </span>
+                {% if icecekler %}
 
-                </div>
+                    {% for urun in icecekler %}
 
-                <p class="menu-desc">
-                    {{ urun.Aciklama }}
-                </p>
+                    <div class="menu-item">
+
+                        <div class="menu-header">
+
+                            <span class="menu-name">
+
+                                {{ urun['urun_ad'] }}
+
+                            </span>
+
+                            <span class="menu-price">
+
+                                {{ urun['fiyat'] }} ₺
+
+                            </span>
+
+                        </div>
+
+                        <p class="menu-desc">
+
+                            {{ urun['aciklama'] }}
+
+                        </p>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="menu-item">
+
+                        <p class="menu-desc">
+
+                            Henüz ürün eklenmedi.
+
+                        </p>
+
+                    </div>
+
+                {% endif %}
 
             </div>
-
-            {% endfor %}
 
         </div>
 
         <!-- TATLILAR -->
 
-        <h2 class="category-title">
-            <i class="fa-solid fa-cake-candles"></i>
-            Tatlılar
-        </h2>
+        <div class="menu-category">
 
-        <div class="menu-grid">
+            <h2 class="category-title">
 
-            {% for urun in tatlilar %}
+                <i class="fa-solid fa-cake-candles"></i>
 
-            <div class="menu-item">
+                Tatlılar
 
-                <div class="menu-header">
+            </h2>
 
-                    <span class="menu-name">
-                        {{ urun.UrunAd }}
-                    </span>
+            <div class="menu-grid">
 
-                    <span class="menu-price">
-                        {{ urun.Fiyat }} ₺
-                    </span>
+                {% if tatlilar %}
 
-                </div>
+                    {% for urun in tatlilar %}
 
-                <p class="menu-desc">
-                    {{ urun.Aciklama }}
-                </p>
+                    <div class="menu-item">
+
+                        <div class="menu-header">
+
+                            <span class="menu-name">
+
+                                {{ urun['urun_ad'] }}
+
+                            </span>
+
+                            <span class="menu-price">
+
+                                {{ urun['fiyat'] }} ₺
+
+                            </span>
+
+                        </div>
+
+                        <p class="menu-desc">
+
+                            {{ urun['aciklama'] }}
+
+                        </p>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="menu-item">
+
+                        <p class="menu-desc">
+
+                            Henüz ürün eklenmedi.
+
+                        </p>
+
+                    </div>
+
+                {% endif %}
 
             </div>
-
-            {% endfor %}
 
         </div>
 
         <!-- ARA SICAKLAR -->
 
-        <h2 class="category-title">
-            <i class="fa-solid fa-burger"></i>
-            Ara Sıcaklar
-        </h2>
+        <div class="menu-category">
 
-        <div class="menu-grid">
+            <h2 class="category-title">
 
-            {% for urun in ara_sicaklar %}
+                <i class="fa-solid fa-burger"></i>
 
-            <div class="menu-item">
+                Ara Sıcaklar
 
-                <div class="menu-header">
+            </h2>
 
-                    <span class="menu-name">
-                        {{ urun.UrunAd }}
-                    </span>
+            <div class="menu-grid">
 
-                    <span class="menu-price">
-                        {{ urun.Fiyat }} ₺
-                    </span>
+                {% if ara_sicaklar %}
 
-                </div>
+                    {% for urun in ara_sicaklar %}
 
-                <p class="menu-desc">
-                    {{ urun.Aciklama }}
-                </p>
+                    <div class="menu-item">
+
+                        <div class="menu-header">
+
+                            <span class="menu-name">
+
+                                {{ urun['urun_ad'] }}
+
+                            </span>
+
+                            <span class="menu-price">
+
+                                {{ urun['fiyat'] }} ₺
+
+                            </span>
+
+                        </div>
+
+                        <p class="menu-desc">
+
+                            {{ urun['aciklama'] }}
+
+                        </p>
+
+                    </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="menu-item">
+
+                        <p class="menu-desc">
+
+                            Henüz ürün eklenmedi.
+
+                        </p>
+
+                    </div>
+
+                {% endif %}
 
             </div>
 
-            {% endfor %}
-
         </div>
 
-    </div>
+    </section>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>
